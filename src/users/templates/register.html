@@ -1,0 +1,22 @@
+{% extends 'base.html' %} 
+{% load static %}
+{% load crispy_forms_tags %}
+{% block 'body'%}
+
+<br>
+<div class="text-center">
+  <main class="form-signin">
+
+
+    <form action='' method='post'>
+        <img class='mb-4' src="{% static 'images/car.png' %}" height='100' width='100'>
+        {% csrf_token %}  
+        {{reg_form|crispy }}
+        <button type='submit' class="w-100 btn btn-small btn-danger">Register</button>
+        <p class="mt-5 mb-3 text-muted">Copyright @ 2022 SUPER CHARGE</p>
+    </form
+
+  </main>
+</div>
+
+{% endblock%} {% block 'footer' %} {% endblock %}

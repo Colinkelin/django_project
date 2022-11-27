@@ -1,0 +1,76 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html lang="en" class="h-100">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="Colin Barrett" />
+
+    <!--Bootstrap CSS-->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <!-- CSS Styling-->
+    <link href ="{% static 'css/style.css' %}" rel ="stylesheet">
+
+    {% block 'title' %}
+    <title>Super Charge! List/ advertise your car today</title>
+    {% endblock %}
+  </head>
+
+  <body>
+
+    {% if messages %}
+    {% for message in messages %}
+    <div class='alert alert-{{message.tags}}'>
+      {{message}}
+    </div>
+    {% endfor %}
+    {% endif %}
+
+    {% block 'header' %}
+
+      <header class= "p-3 bg-dark text-white w-100 nav-masthead">
+        <div class='container'>
+          <div class='d-flex flex-wrap align-items-center justify-content-lg-start'>
+          <a href = '{% url 'home'%}' class='d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none'>
+            <img class="bi me-2" width="32" height="32" src="{% static 'images/logo.png' %}">
+            <aria-label='Bootstrap'>
+          </a>
+          {% if request.user.is_authenticated %}
+            <ul class=' nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center'> 
+              <li>
+                <a href= "" class="nav-link px-2">Profile</a>
+              </li>
+            </ul>
+
+            <div class="text-end">
+              <a href="{% url 'logout'%}" type="button" class=" w-100 btn btn-small btn-danger">Logout</a>
+            </div>
+          {% endif %}
+        </div>
+        </div>
+      </header
+
+    {% endblock %}
+
+    {% block 'body' %} <!-- what i put in this block is going to be replace by body tag from another template -->
+
+    {% endblock %}
+
+  </body>
+
+  <!-- Default implementation being used-->
+  {% block 'footer' %} 
+   <footer class="footer text-muted bg-dark py-5">
+    <div class="container">
+        <p class="float-end mb-1">Powered by <a href="https://www.djangoproject.com/">Django</a></p>
+        </p>
+        <p class="mb-1">Super Charge - Best Place To Advertise Cars</p>
+        <p class="mb-0">© Copyright {% now 'Y' %} <a href="">Super Charge</a></p>
+    </div>
+</footer>
+{% endblock %}
+
+</html>

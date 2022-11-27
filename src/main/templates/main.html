@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load static %}
+<!--extends the contents of the base.html file -->
+
+<!--#will replace the contents of the body tag in the base.html -->
+{% block 'body' %}
+<h1>Welcome to Super Charge!</h1>
+
+<div class="d-flex h-100 text-center text-white index">
+  <video autoplay muted loop id="myVideo">
+    <source src="{% static 'videos/bg2.mp4'%}" type="video/mp4" />
+    <!--Credit https://www.pexels.com/video/woman-walking-towards-a-luxury-sports-car-5309422/ -->
+  </video>
+  <div class="d-flex w-100 h-100 p-3 mx-auto flex-column main-content">
+    <header class="mb-auto">
+      <div>
+        <h3 class="float-md-start mb-0">Supercharge</h3>
+        <nav class="nav nav-masthead justify-content-center float-md-end">
+          {% if request.user.is_authenticated %}
+          <a class="nav-link active" aria-current="page" href="{% url 'home'%}">Home</a> 
+          {% else %}
+          <a class="nav-link" href="{% url 'login'%}">Login</a>
+          {% endif %}
+        </nav>
+      </div>
+    </header>
+        <main class="px-3">
+         <h2>Find a deal near you!</h2>
+            <p class="lead">Looking to list, rent or advertise a used car? We've got you
+                covered. </br> SuperCharge is the leading used car marketplace.</p>
+            <p class="lead">
+                <a href="{% url 'register'%}" class="btn btn-lg btn-secondary fw-bold border-white bg-white">Register</a>
+            </p>
+        </main>
+            <footer class="mt-auto text-white-50">
+                 <p>
+                     Copyright © {% now 'Y' %} <a href="" class="text-white">SuperCharge</a> by
+                    <a href="" class="text-white">Colin</a>
+                </p>
+            </footer>
+  </div>
+</div>
+{% endblock %}
+
+<!--INDEPENDENT FOOTER-->
+<!--#will replace the contents of the footer tag in the base.html -->
+{% block 'footer' %}
+
+{% endblock %}
+
+
+
+

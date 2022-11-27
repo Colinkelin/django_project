@@ -1,0 +1,18 @@
+-------------------------------------------
+Understanding the concepts of apps within the django web framework and how differenty functionalities from each app will make the complete django project.
+
+understanding the relevance of the different files within the django project structure
+
+understanding the django admin panel, the module that gives the admin panel its functionality. How to create a superuser to manage the django admin panel user interface.
+
+Understanding how the django powers a webpage through separate files( urls, view, models and templates)
+understanding how django templating works. Loading static assets into the application 
+EXtending templates
+   
+
+implementing back end logic to the admin site through the models.py and admin.py file.
+making migrations to the database and apply migration to the database.
+
+Working with forms. Authenticating user data for login. Unstanding the need for CSRF protection and implementing
+Working with Django messages to display data upon specific user interaction.
+Authenticating user data for registration form.
